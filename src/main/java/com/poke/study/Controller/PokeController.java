@@ -52,7 +52,7 @@ public class PokeController {
     @GetMapping("/name/{name}")
     public ResponseEntity<List<Pokemon>>getAllPokemonByName(@PathVariable String name){
         if(pokeRepository.findAllByNameContainingIgnoreCase(name).isEmpty()) {
-			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "No pokemons with this type found");
+			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "No pokemons with this name found");
 		}
 		return ResponseEntity.ok(pokeRepository.findAllByNameContainingIgnoreCase(name));
 	}
@@ -75,6 +75,7 @@ public class PokeController {
         return pokeRepository.save(updateObj);
 
     }
+
 		
 
 }
