@@ -28,6 +28,7 @@ public class Pokemon {
 
     @ManyToOne
 	@JsonIgnoreProperties("pokemons")
+    @NonNull
 	private Trainer trainer;
 
 
@@ -53,6 +54,14 @@ public class Pokemon {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public Trainer getTrainer() {
+        return trainer;
+    }
+
+    public void setTrainer(Trainer trainer) {
+        this.trainer = trainer;
     }
 
 
